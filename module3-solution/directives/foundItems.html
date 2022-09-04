@@ -1,0 +1,9 @@
+<!doctype html>
+<div id="menu_list" >
+  <li class="list" ng-repeat="item in items">
+    <span>{{item.short_name}} : {{item.name}}
+    <button type="button" name="button" ng-click="removeItem({index:$index})">Don't want this one!</button></span>
+
+  </li>
+</ul>
+</div>
