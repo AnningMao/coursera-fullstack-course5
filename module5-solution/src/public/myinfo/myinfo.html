@@ -1,0 +1,53 @@
+<div class="container">
+  <div id="not-registered" ng-if="!myinfoctrl.isRegistered">
+    <h3>Not Signed Up Yet, <a ui-sref="public.signup">Sign Up Now!</a></h3>
+  </div>
+
+
+  <div ng-if="myinfoctrl.isRegistered">
+    <div id="user-info">
+      <h3>User Infomation:</h3>
+      <br>
+      <div>
+        Name: {{myinfoctrl.user.firstName }} {{myinfoctrl.user.lastName}}
+      </div>
+      <div>
+        Email: {{myinfoctrl.user.email}}
+      </div>
+      <div>
+        Phone Number: {{myinfoctrl.user.phone}}
+      </div>
+    </div>
+
+    <br>
+
+
+    <div>
+      <h3>Favourite Item:</h3>
+      <br>
+      <br>
+      <menu-item ng-repeat="menuItem in ctrl.menuItems"
+                 menu-item="menuItem">
+      </menu-item>
+
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="menu-item-photo">
+            <div>{{myinfoctrl.favouriteItem.short_name}}</div>
+            <img class="img-responsive" width="250" height="150"
+            ng-src="{{myinfoctrl.basePath}}/images/{{myinfoctrl.favouriteItem.short_name}}.jpg"
+            alt="{{myinfoctrl.favouriteItem.name}}">
+          </div>
+          <div class="menu-item-price">{{myinfoctrl.favouriteItem.price_small|currency}}
+            <span> {{myinfoctrl.favouriteItem.small_portion_name}}</span>
+            {{myinfoctrl.favouriteItem.price_large|currency}}
+            <span>{{myinfoctrl.favouriteItem.large_portion_name}}</span></div>
+        </div>
+        <div class="menu-item-description col-sm-7">
+          <h3 class="menu-item-title">{{myinfoctrl.menuItem.name}}</h3>
+          <p class="menu-item-details">{{myinfoctrl.menuItem.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
